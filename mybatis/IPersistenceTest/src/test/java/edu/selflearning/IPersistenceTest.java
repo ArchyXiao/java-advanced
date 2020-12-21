@@ -1,5 +1,6 @@
 package edu.selflearning;
 
+import edu.selflearning.dao.IUserDao;
 import edu.selflearning.pojo.User;
 import io.Resources;
 import org.junit.Test;
@@ -28,13 +29,24 @@ public class IPersistenceTest {
         user.setId(1);
         user.setUsername("lucy");
 
-        User user2  = sqlSession.selectOne("user.findOne", user);
-        System.out.println(user2);
+        // User user2  = sqlSession.selectOne("user.findOne", user);
+        // System.out.println(user2);
+        //
+        // List<User> users = sqlSession.selectList("user.findAll");
+        // for (User user1 : users) {
+        //     System.out.println(user1);
+        // }
 
-        List<User> users = sqlSession.selectList("user.findAll");
-        for (User user1 : users) {
-            System.out.println(user1);
+        IUserDao userDao = sqlSession.getMapper(IUserDao.class);
+        // User user1 = userDao.findByCondition(user);
+        // System.out.println(user1);
+
+        List<User> all = userDao.findAll();
+        for (User user2 : all) {
+            System.out.println(user2);
         }
+
+
     }
 
 

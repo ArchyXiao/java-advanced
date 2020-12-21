@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.selflearning.pojo.User">
+    <!--namespace : 名称空间：与id组成sql的唯一标识
+        resultType： 表明返回值类型-->
+
+    <!--抽取sql片段-->
+<!--    <sql id="selectUser">-->
+<!--         select * from user-->
+<!--    </sql>-->
+
+
+    <!--查询用户-->
+    <select id="findAll" resultType="edu.selflearning.pojo.User">
+        select * from user
+    </select>
+
+    <!--添加用户-->
+    <!--parameterType：参数类型-->
+    <insert id="saveUser" parameterType="edu.selflearning.pojo.User" >
+        insert into user values(#{id},#{username})
+    </insert>
+
+<!--    &lt;!&ndash;修改&ndash;&gt;-->
+<!--    <update id="updateUser" parameterType="user">-->
+<!--        update user set username = #{username} where id = #{id}-->
+<!--    </update>-->
+
+<!--    &lt;!&ndash;删除&ndash;&gt;-->
+<!--    <delete id="deleteUser" parameterType="int">-->
+<!--        delete from user where id = #{abc}-->
+<!--    </delete>-->
+
+<!--    &lt;!&ndash;多条件组合查询：演示if&ndash;&gt;-->
+<!--    <select id="findByCondition" parameterType="user" resultType="user">-->
+<!--        <include refid="selectUser"></include>-->
+<!--        <where>-->
+<!--        <if test="id !=null">-->
+<!--            and id = #{id}-->
+<!--        </if>-->
+<!--        <if test="username !=null">-->
+<!--            and username = #{username}-->
+<!--        </if>-->
+<!--        </where>-->
+
+<!--    </select>-->
+
+<!--    &lt;!&ndash;多值查询：演示foreach&ndash;&gt;-->
+<!--    <select id="findByIds" parameterType="list" resultType="user">-->
+<!--        <include refid="selectUser"></include>-->
+<!--        <where>-->
+<!--            <foreach collection="array" open="id in (" close=")" item="id" separator=",">-->
+<!--                #{id}-->
+<!--            </foreach>-->
+<!--        </where>-->
+
+<!--    </select>-->
+
+
+
+    
+    
+</mapper>

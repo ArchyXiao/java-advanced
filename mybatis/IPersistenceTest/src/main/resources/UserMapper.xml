@@ -1,5 +1,5 @@
 <!--<mapper namespace="com.lagou.dao.IUserDao">-->
-<mapper namespace="user">
+<mapper namespace="edu.selflearning.dao.IUserDao">
 
     <!--sql的唯一标识：namespace.id来组成 ： statementId-->
     <select id="findAll" resultType="edu.selflearning.pojo.User" >
@@ -12,7 +12,7 @@
         user.setId(1);
         user.setUsername("zhangsan")
     -->
-    <select id="findOne" resultType="edu.selflearning.pojo.User" paramterType="edu.selflearning.pojo.User">
+    <select id="findByCondition" resultType="edu.selflearning.pojo.User" paramterType="edu.selflearning.pojo.User">
         select * from user where id = #{id} and username = #{username}
     </select>
 
